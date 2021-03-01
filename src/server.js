@@ -16,6 +16,8 @@ const clothesRoutes = require ('./routes/clothes.js');
 const PORT = procees.env.PORT || 3000;
 
 app.use(exrpess.json());
+app.use(logger);
+app.use(validator);
 app.use(foodRoutes);
 app.use(clothesRoutes);
 
