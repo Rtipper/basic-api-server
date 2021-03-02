@@ -7,15 +7,17 @@ const app = express();
 // INTERNAL MODULES
 const notFound = require('./error-handlers/404.js');
 const errors = require('./error-handlers/500.js');
-const logger = require('./middlerware/logger.js');
+const logger = require('./middleware/logger.js');
 const validator = require ('./middleware/validator.js');
+
+// FOOD + CLOTHES
 const foodRoutes = require ('./routes/food.js');
 const clothesRoutes = require ('./routes/clothes.js');
 
 // INTERNAL CONSTANTS
-const PORT = procees.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(exrpess.json());
+app.use(express.json());
 app.use(logger);
 app.use(validator);
 app.use(foodRoutes);

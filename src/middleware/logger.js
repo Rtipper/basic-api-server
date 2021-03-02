@@ -1,5 +1,8 @@
 'use strict';
 
-module.exports = (req, res, next) => {
-  console.log('request info', req.path, req.method);
+const logger = (req, res, next) => {
+  console.log('REQUEST:', req.method, req.path);
+  next();
 }
+
+module.exports = logger;

@@ -1,9 +1,8 @@
 'use strict';
 
 const express = require('express');
-const ClothesModel = require('../models/clothes.js');
-const Clothes = require('../models/clothes.js');
 
+const Clothes = require('../models/clothes.js');
 const clothesItems = new Clothes();
 
 const clothesRouter = express.Router();
