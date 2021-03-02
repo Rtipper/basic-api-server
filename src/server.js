@@ -15,7 +15,7 @@ const foodRoutes = require ('./routes/food.js');
 const clothesRoutes = require ('./routes/clothes.js');
 
 // INTERNAL CONSTANTS
-const PORT = procees.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(exrpess.json());
 app.use(logger);
