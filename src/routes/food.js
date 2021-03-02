@@ -1,10 +1,8 @@
 'use strict';
 
 const express = require('express');
-const FoodsModel = require('../models/food.js');
-const FoodModel = require('../models/food.js');
-const Foods = require('../models/food.js')
 
+const Foods = require('../models/food.js')
 const foodItems = new Foods();
 
 const foodRouter = express.Router();
