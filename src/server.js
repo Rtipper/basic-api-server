@@ -17,7 +17,7 @@ const clothesRoutes = require ('./routes/clothes.js');
 // INTERNAL CONSTANTS
 const PORT = process.env.PORT || 3000;
 
-app.use(exrpess.json());
+app.use(express.json());
 app.use(logger);
 app.use(validator);
 app.use(foodRoutes);
