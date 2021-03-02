@@ -7,8 +7,10 @@ const app = express();
 // INTERNAL MODULES
 const notFound = require('./error-handlers/404.js');
 const errors = require('./error-handlers/500.js');
-const logger = require('./middlerware/logger.js');
+const logger = require('./middleware/logger.js');
 const validator = require ('./middleware/validator.js');
+
+// FOOD + CLOTHES
 const foodRoutes = require ('./routes/food.js');
 const clothesRoutes = require ('./routes/clothes.js');
 
