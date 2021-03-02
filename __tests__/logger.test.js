@@ -16,12 +16,12 @@ describe('logger middleware', () => {
   });
 
   it('logs an output', () => {
-    logger(req, res, next);
+    loggerMiddleware(req, res, next);
     expect(consoleSpy).toHaveBeenCalled();
   });
 
   it('move on to next middleware', () => {
-    logger(req, res, next);
+    loggerMiddleware(req, res, next);
     expect(next).toHaveBeenCalledWith();
   });
 
