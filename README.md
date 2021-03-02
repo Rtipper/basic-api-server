@@ -4,11 +4,11 @@
 **Author**: Ryan Tipper
 **Version**: 1.0.0
 
-# Pull Requests
--  
+# Pull Request
+-  https://github.com/Rtipper/basic-api-server/pull/4
 
 # Heroku Deployment
-- 
+- https://rtipper-basic-api-server.herokuapp.com/
 
 ## Overview - Build a REST API using Express, by creating a proper series of endpoints that perform CRUD operations on a database, using the REST standard
 
@@ -35,22 +35,26 @@ XX-XX-XX XXPM:
 
 ## Credits and Collaborations
 
-Number and name of feature: 1 -- Lab XX (XX)
+Number and name of feature: 1 -- Lab 03
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 5 1/2 hours
 
-Start time: 
+Start time: 2PM
 
-Finish time: 
+Finish time: N/A
 
-Actual time needed to complete: 
+Actual time needed to complete: 4 hours
 
-Number and name of feature: 2 -- Lab XX (XX)
+Number and name of feature: 1 cont -- Lab 03
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 2 1/2 hours
 
-Start time: 
+Start time: 845PM
 
-Finish time: 
+Finish time: 10PM
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hr 15 min
+
+----------
+
+* Tests from demo code not passing. Attempted multiple troubleshooting options to no avail, aside from making sure my other code was G2G. With CI not fully passing, Heroku deployment not fully working, but link provided as if it were.
