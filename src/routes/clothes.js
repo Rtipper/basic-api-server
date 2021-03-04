@@ -8,11 +8,11 @@ const clothesItems = new Clothes();
 const clothesRouter = express.Router();
 
 // ROUTES
-clothesRouter.get('/food', getClothes);
-clothesRouter.get('/food/:id', getOneClothes);
-clothesRouter.post('/food', createClothes);
-clothesRouter.put('/foods/:id', updateClothes);
-clothesRouter.delete('/foods/:id', deleteClothes);
+clothesRouter.get('/clothes', getClothes);
+clothesRouter.get('/clothes/:id', getOneClothes);
+clothesRouter.post('clothes', createClothes);
+clothesRouter.put('/clothes/:id', updateClothes);
+clothesRouter.delete('/clothes/:id', deleteClothes);
 
 function getClothes(req, res) {
   let allClothes = clothesItems.get();
