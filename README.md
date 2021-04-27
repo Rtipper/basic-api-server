@@ -8,7 +8,10 @@
 -  https://github.com/Rtipper/basic-api-server/pull/4
 
 # Heroku Deployment
+- https://rtipper-basic-api-server.herokuapp.com/
 
+# Working Test
+- https://github.com/Rtipper/basic-api-server/runs/2444413332?check_suite_focus=true
 
 ## Overview - Build a REST API using Express, by creating a proper series of endpoints that perform CRUD operations on a database, using the REST standard
 
@@ -31,7 +34,7 @@ GitHub
 Heroku
 
 ## Change Log
-04-26-21 330PM: Went back through and repaired tests issues to get code fully working.
+04-26-21 830PM: Went back through and repaired tests issues to get code fully working.
 
 ## Credits and Collaborations
 
