@@ -1,44 +1,53 @@
 'use strict';
 
-class FoodsModel {
+class Food {
   constructor() {
     this.id = 0;
     this.db = [];
   }
 
-// READ
-get(id) {
-  if (id) {
-    return this.db.find(record => record.id === id);
-  } else {
-    return this.db;
-  }
-}
-
-// CREATE
-create(obj) {
-  let record = {
-    id: ++this.id,
-    record: obj
+  //CREATE
+  create(object) {
+    let record = {
+      id: ++this.id,
+      record: object
+    };
+    this.db.push(record);
+    console.log('Successfully Added');
+    return record;
   }
 
-  this.db.push(record);
-  return record;
-}
-
-// UPDATE
-  update(id, obj) {
+  //READ
+  read(id) {
     if(id) {
-      return obj
+      return this.db.find(record => record.id === id);
+    } else {
+      return this.db;
     }
   }
 
-// DELETE
+  //UPDATE
+  update(id, obj) {
+    if (id) {
+      this.db = this.db.map(file => {
+        if (file.id === id) {
+          file.record = obj;
+          return file;
+        }
+      });
+      return this.db.find(record => record.id === id);
+    }
+  }
+
+  //DELETE
   delete(id) {
     if (id) {
-      return null;
+      console.log(`deleting ID: ${id}`);
+      this.db = this.db.filter(record => record.id !== id);
+      return this.db.find(record => record.id === id);
     }
+    return undefined;
   }
 }
 
-module.exports = FoodsModel;
+module.exports = Food;

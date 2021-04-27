@@ -1,50 +1,49 @@
-'use strict';
+  'use strict';
 
 const express = require('express');
-
 const Clothes = require('../models/clothes.js');
-const clothesItems = new Clothes();
+const clothes = new Clothes();
+const clothesRoute = express.Router();
 
-const clothesRouter = express.Router();
 
-// ROUTES
-clothesRouter.get('/food', getClothes);
-clothesRouter.get('/food/:id', getOneClothes);
-clothesRouter.post('/food', createClothes);
-clothesRouter.put('/foods/:id', updateClothes);
-clothesRouter.delete('/foods/:id', deleteClothes);
+clothesRoute.get('/clothes', getItems);
+clothesRoute.get('/clothes/:id', getItem);
+clothesRoute.post('/clothes', createItem);
+clothesRoute.put('/clothes/:id', updateItem);
+clothesRoute.delete('/clothes/:id', deleteItem);
 
-function getClothes(req, res) {
-  let allClothes = clothesItems.get();
-  res.status(200).json(allClothes);
+function getItems(req, res){
+  let all = clothes.read();
+  res.status(200).json(all);
 }
 
-function getOneClothes(req, res) {
+//GET
+function getItem(req, res){
   let id = parseInt(req.params.id);
-  let clothes = clothesItems.get(id);
-  res.status(200).json(clothes);
+  let item = clothes.read(id);
+  res.status(200).json(item);
 }
 
-// CREATE
-function createClothes(req, res) {
+//CREATE
+function createItem(req, res){
   let obj = req.body;
-  let newClothes = clothesItems.create(obj);
-  res.status(201).json(newClothes);
+  let newItem = clothes.create(obj);
+  res.status(201).json(newItem);
 }
 
-// UPDATE
-function updateClothes (req, res) {
+//UPDATE
+function updateItem(req, res) {
   let id = parseInt(req.params.id);
   let content = req.body;
-  let updated = clothesItems.update(id, content);
-  res.status(200).json(updated);
+  let updated = clothes.update(id, content);
+  res.status(200).send(updated);
 }
 
-// DELETE
-function deleteClothes (req, res) {
+//DELETE
+function deleteItem(req, res) {
   let id = parseInt(req.params.id);
-  let deleted = clothesItems.delete(id);
-  res.status(204).send('item, and hopes, deleted');
+  let deleted = clothes.delete(id);
+  res.status(204).json(deleted);
 }
 
-module.exports = clothesRouter;
+module.exports = clothesRoute;

@@ -1,50 +1,51 @@
 'use strict';
 
 const express = require('express');
+const Food = require('../models/food.js');
 
-const Foods = require('../models/food.js')
-const foodItems = new Foods();
+const food = new Food();
+const foodRoute = express.Router();
 
-const foodRouter = express.Router();
+foodRoute.get('/food', getItems);
+foodRoute.get('/food/:id', getItem);
+foodRoute.post('/food', createItem);
+foodRoute.put('/food/:id', updateItem);
+foodRoute.delete('/food/:id', deleteItem);
 
-// ROUTES
-foodRouter.get('/food', getFood);
-foodRouter.get('/food/:id', getOneFood);
-foodRouter.post('/food', createFood);
-foodRouter.put('/foods/:id', updateFood);
-foodRouter.delete('/foods/:id', deleteFood);
 
-function getFood(req, res) {
-  let allFoods = foodItems.get();
-  res.status(200).json(allFoods);
+function getItems(req, res){
+  let all = food.read();
+  res.status(200).json(all);
 }
 
-function getOneFood(req, res) {
+//GET
+function getItem(req, res){
   let id = parseInt(req.params.id);
-  let food = foodItems.get(id);
-  res.status(200).json(food);
+  let item = food.read(id);
+  res.status(200).json(item);
 }
 
-// CREATE
-function createFood(req, res) {
+//CREATE
+function createItem(req, res){
   let obj = req.body;
-  let newFood = foodItems.create(obj);
-  res.status(201).json(newFood);
+  let newItem = food.create(obj);
+  res.status(201).json(newItem);
 }
 
-// UPDATE
-function updateFood (req, res) {
+//UPDATE
+function updateItem(req, res) {
   let id = parseInt(req.params.id);
   let content = req.body;
-  let updated = foodItems.update(id, content);
-  res.status(200).json(updated);
+  let updated = food.update(id, content);
+  res.status(200).send(updated);
 }
 
-// DELETE
-function deleteFood (req, res) {
+//DELETE
+function deleteItem(req, res) {
   let id = parseInt(req.params.id);
-  let deleted = foodItems.delete(id);
-  res.status(204).send('item, and hopes, deleted');
+  let deleted = food.delete(id);
+  res.status(204).send('Item successfully deleted..');
 }
 
-module.exports = foodRouter;
+
+module.exports = foodRoute;

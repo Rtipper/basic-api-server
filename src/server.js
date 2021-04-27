@@ -2,35 +2,29 @@
 
 // 3RD PARTY DEPENDENCIES
 const express = require('express');
+
+//INTERNALS
+const notFoundHandler = require('./error-handlers/404.js');
+const errorHandler = require('./error-handlers/500.js');
+const clothesRoutes = require('./routes/clothes.js');
+const foodRoutes = require('./routes/food.js');
+
 const app = express();
-
-// INTERNAL MODULES
-const notFound = require('./error-handlers/404.js');
-const errors = require('./error-handlers/500.js');
-const logger = require('./middleware/logger.js');
-const validator = require ('./middleware/validator.js');
-
-// FOOD + CLOTHES
-const foodRoutes = require ('./routes/food.js');
-const clothesRoutes = require ('./routes/clothes.js');
-
-// INTERNAL CONSTANTS
-const PORT = process.env.PORT || 3000;
-
 app.use(express.json());
-app.use(logger);
-app.use(validator);
-app.use(foodRoutes);
-app.use(clothesRoutes);
 
-app.use('*', notFound);
-app.use(errors);
+//ROUTES
+app.use(clothesRoutes);
+app.use(foodRoutes);
+
+
+app.use('*', notFoundHandler);
+app.use(errorHandler);
 
 module.exports = {
-  server: app,
-  start: (port) => {
+  app: app,
+  start: port => {
     app.listen(port, () => {
-      console.log(`listening on ${port}`);
+      console.log(`Now listening on port: ${port}`);
     });
   }
-}
+};
