@@ -8,7 +8,7 @@
 -  https://github.com/Rtipper/basic-api-server/pull/4
 
 # Heroku Deployment
-- https://rtipper-basic-api-server.herokuapp.com/
+
 
 ## Overview - Build a REST API using Express, by creating a proper series of endpoints that perform CRUD operations on a database, using the REST standard
 
