@@ -6,11 +6,20 @@ const clothes = new Clothes();
 const clothesRoute = express.Router();
 
 
+
 clothesRoute.get('/clothes', getItems);
 clothesRoute.get('/clothes/:id', getItem);
 clothesRoute.post('/clothes', createItem);
 clothesRoute.put('/clothes/:id', updateItem);
 clothesRoute.delete('/clothes/:id', deleteItem);
+
+// ROUTES
+clothesRouter.get('/clothes', getClothes);
+clothesRouter.get('/clothes/:id', getOneClothes);
+clothesRouter.post('clothes', createClothes);
+clothesRouter.put('/clothes/:id', updateClothes);
+clothesRouter.delete('/clothes/:id', deleteClothes);
+
 
 function getItems(req, res){
   let all = clothes.read();
