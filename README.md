@@ -31,7 +31,7 @@ GitHub
 Heroku
 
 ## Change Log
-XX-XX-XX XXPM: 
+04-26-21 330PM: Went back through and repaired tests issues to get code fully working.
 
 ## Credits and Collaborations
 
@@ -56,5 +56,3 @@ Finish time: 10PM
 Actual time needed to complete: 1 hr 15 min
 
 ----------
-
-* Tests from demo code not passing. Attempted multiple troubleshooting options to no avail, aside from making sure my other code was G2G. With CI not fully passing, Heroku deployment not fully working, but link provided as if it were.
